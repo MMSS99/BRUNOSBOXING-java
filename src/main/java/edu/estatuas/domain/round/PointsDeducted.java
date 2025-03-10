@@ -40,4 +40,10 @@ public class PointsDeducted implements Round {
         return this.blueBoxerScore;
     }
 
+    @Override
+    public String toString() {
+        return "PointsDeducted{" +
+                "roundScore='" + roundScore + '\'' +
+                '}';
+    }
 }

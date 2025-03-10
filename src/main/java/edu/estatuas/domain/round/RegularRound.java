@@ -30,4 +30,10 @@ public class RegularRound implements Round {
         return this.blueBoxerScore;
     }
 
+    @Override
+    public String toString() {
+        return "RegularRound{" +
+                "roundScore='" + roundScore + '\'' +
+                '}';
+    }
 }

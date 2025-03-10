@@ -23,4 +23,12 @@ class RoundTest {
         assertEquals(10, testround.getBlueBoxerScore());
 
     }
+
+    @Test
+    public void roundTest(){
+        Round testround = new RegularRound("9 - 10");
+
+        assertEquals(9, testround.redBoxerScore);
+        assertEquals(10, testround.blueBoxerScore);
+    }
 }

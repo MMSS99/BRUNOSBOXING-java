@@ -1,6 +1,6 @@
 package edu.estatuas.domain.round;
 
-public class RegularRound {
+public class RegularRound implements Round {
 
     private byte redBoxerScore;
     private byte blueBoxerScore;
@@ -12,18 +12,21 @@ public class RegularRound {
 
     }
 
-    void boxerRoundScore(){
+    @Override
+    public void boxerRoundScore(){
         String[] splittedScore = this.roundScore.split(" - ");
         this.redBoxerScore = Byte.parseByte(splittedScore[0]);
         this.blueBoxerScore = Byte.parseByte(splittedScore[1]);
 
     }
 
-    byte getRedBoxerScore(){
+    @Override
+    public byte getRedBoxerScore(){
         return this.redBoxerScore;
     }
 
-    byte getBlueBoxerScore(){
+    @Override
+    public byte getBlueBoxerScore(){
         return this.blueBoxerScore;
     }
 

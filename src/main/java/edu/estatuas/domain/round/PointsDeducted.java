@@ -6,7 +6,7 @@ public class PointsDeducted implements Round {
     private byte blueBoxerScore;
     private final String roundScore;
 
-    PointsDeducted(String scoreInput) {
+    public PointsDeducted(String scoreInput) {
         this.roundScore = scoreInput;
         boxerRoundScore();
     }

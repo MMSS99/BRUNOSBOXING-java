@@ -83,8 +83,6 @@ public class Brunosbox
          * del ejercicio.
          */
 
-        System.out.println(whiteScoreCard);
-
 
         /**
          * Crea una clase llamada RegularRound

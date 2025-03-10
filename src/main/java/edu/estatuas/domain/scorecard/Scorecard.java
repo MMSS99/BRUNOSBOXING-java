@@ -12,7 +12,7 @@ public class Scorecard {
     String[] judgeScoreCard;
     Round[] rounds = new Round[10];
 
-    Scorecard(String color){
+    public Scorecard(String color){
         this.color = color;
     }
 
@@ -39,6 +39,24 @@ public class Scorecard {
                 rounds[roundNumber] = new KnockdownRound(judgeScoreCard[roundNumber]);
             }
         }
+    }
+
+    public Round[] getRounds(){return rounds;}
+
+    public int getRedBoxerFinalScore(){
+        int finalScore = 0;
+        for (Round round : rounds){
+            finalScore = finalScore + round.getRedBoxerScore();
+        }
+        return finalScore;
+    }
+
+    public int getBlueBoxerFinalScore(){
+        int finalScore = 0;
+        for (Round round : rounds){
+            finalScore = finalScore + round.getBlueBoxerScore();
+        }
+        return finalScore;
     }
 
 }

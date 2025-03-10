@@ -1,5 +1,11 @@
 package edu.estatuas.appbrunosbox;
 
+import edu.estatuas.domain.round.KnockdownRound;
+import edu.estatuas.domain.round.PointsDeducted;
+import edu.estatuas.domain.round.RegularRound;
+import edu.estatuas.domain.round.Round;
+import edu.estatuas.domain.scorecard.Scorecard;
+
 public class Brunosbox
 {
     public static void main( String[] args ) {
@@ -42,7 +48,7 @@ public class Brunosbox
                         "9 - 10",
                         "1, 8 - 10", // referee point deduction
                         "10 - 8",    // knockdown
-                        "10 - 8 ,1", // referee point deduction
+                        "10 - 8, 1", // referee point deduction
                         "10 - 9",
                         "9 - 10",
                         "10 - 9",
@@ -51,21 +57,25 @@ public class Brunosbox
 
         };
 
+        String[] testingdata = {"9 - 10", "10 - 8", "10 - 8, 1", "9 - 10", "9 - 10", "9 - 10", "9 - 10", "9 - 10", "9 - 10", "9 - 10"};
+        Scorecard testingScorecard = new Scorecard("TEST");
+        testingScorecard.loadJudgeScoreCard(testingdata);
+
         /**
          * Crea una tarjeta de puntos de boxeo
          * a partir de la tarjeta blanca entregada
          * por el juez blanco.
          */
 
-        ScoreCard whiteScoreCard = new ScoreCard("WHITE");
+        Scorecard whiteScoreCard = new Scorecard("WHITE");
 
         /**
          * Asigna el nombre de los pugiles
          * Rocky Balboa (red) vs Apollo Creed (blue)
          */
 
-        whiteScoreCard.setRCorner("Rocky Balboa");
-        whiteScoreCard.setBCorner("Apollo Creed");
+        whiteScoreCard.setRedCorner("Rocky Balboa");
+        whiteScoreCard.setBlueCorner("Apollo Creed");
 
         /**
          * Muestra la tarjeta por consola con
@@ -109,11 +119,7 @@ public class Brunosbox
          * Se llaman round score.
          */
 
-        whiteScoreCard.loadJudgeScoreCard(
-                // Escribe aquí el código para acceder al primer
-                // elemento del array String[][] data de la línea 13,
-                // la tarjeta blanca
-        );
+        whiteScoreCard.loadJudgeScoreCard(data[0]);
         System.out.println(whiteScoreCard);
 
         /**
@@ -162,9 +168,9 @@ public class Brunosbox
          * en tiempo de ejecución.
          */
 
-        RegularRound regular = (RegularRound) RoundFactory.getRound("9 - 10");
+        Round regular = testingScorecard.getRounds()[0];
         System.out.println("\t regular round: " + regular);
-        KnockdownRound knockdown = (KnockdownRound) RoundFactory.getRound("8 - 10");
+        Round knockdown = testingScorecard.getRounds()[1];
         System.out.println("\t knockdown round: " + knockdown);
 
 
@@ -191,15 +197,11 @@ public class Brunosbox
          * Se llaman score total.
          */
 
-        ScoreCard blueScoreCard = new ScoreCard("BLUE");
-        blueScoreCard.setRCorner("Rocky Balboa");
-        blueScoreCard.setBCorner("Apollo Creed");
+        Scorecard blueScoreCard = new Scorecard("BLUE");
+        blueScoreCard.setRedCorner("Rocky Balboa");
+        blueScoreCard.setBlueCorner("Apollo Creed");
 
-        blueScoreCard.loadJudgeScoreCard(
-                // Escribe aquí el código para acceder al segundo
-                // elemento del array String[][] data de la línea 13,
-                // la tarjeta azul
-        );
+        blueScoreCard.loadJudgeScoreCard(data[1]);
         System.out.println(blueScoreCard);
 
         /**
@@ -222,7 +224,7 @@ public class Brunosbox
          * como un número entero, no como un String.
          */
 
-        PointsDeducted deducted = new PointsDeducted("10 - 8 ,1");
+        PointsDeducted deducted = new PointsDeducted("10 - 8, 1");
         deducted.boxerRoundScore();
         System.out.println("\n\t points deducted round\t" + deducted.getRedBoxerScore() +
                 " - " + deducted.getBlueBoxerScore());
@@ -243,7 +245,7 @@ public class Brunosbox
          * en tiempo de ejecución.
          */
 
-        PointsDeducted pointsDeducted = (PointsDeducted) RoundFactory.getRound("1, 8 - 10");
+        Round pointsDeducted = testingScorecard.getRounds()[2];
         System.out.println("\n\t factory deducted round: " + pointsDeducted);
 
         /**
@@ -270,15 +272,11 @@ public class Brunosbox
          * Se llaman score total.
          */
 
-        ScoreCard pinkScoreCard = new ScoreCard("PINK");
-        pinkScoreCard.setRCorner("Rocky Balboa");
-        pinkScoreCard.setBCorner("Apollo Creed");
+        Scorecard pinkScoreCard = new Scorecard("PINK");
+        pinkScoreCard.setRedCorner("Rocky Balboa");
+        pinkScoreCard.setBlueCorner("Apollo Creed");
 
-        pinkScoreCard.loadJudgeScoreCard(
-                // Escribe aquí el código para acceder al tercer
-                // elemento del array String[][] data de la línea 13,
-                // la tarjeta rosa
-        );
+        pinkScoreCard.loadJudgeScoreCard(data[2]);
         System.out.println(pinkScoreCard);
 
         /**

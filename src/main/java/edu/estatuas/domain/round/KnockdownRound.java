@@ -6,7 +6,7 @@ public class KnockdownRound implements Round {
     private byte blueBoxerScore;
     private final String roundScore;
 
-    KnockdownRound(String scoreInput){
+    public KnockdownRound(String scoreInput){
         this.roundScore = scoreInput;
         boxerRoundScore();
 
@@ -28,5 +28,12 @@ public class KnockdownRound implements Round {
     @Override
     public byte getBlueBoxerScore(){
         return this.blueBoxerScore;
+    }
+
+    @Override
+    public String toString() {
+        return "KnockdownRound{" +
+                "roundScore='" + roundScore + '\'' +
+                '}';
     }
 }

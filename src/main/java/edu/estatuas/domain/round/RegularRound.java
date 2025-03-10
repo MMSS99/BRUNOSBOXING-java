@@ -6,7 +6,7 @@ public class RegularRound implements Round {
     private byte blueBoxerScore;
     private final String roundScore;
 
-    RegularRound(String scoreInput){
+    public RegularRound(String scoreInput){
         this.roundScore = scoreInput;
         boxerRoundScore();
 
@@ -30,4 +30,10 @@ public class RegularRound implements Round {
         return this.blueBoxerScore;
     }
 
+    @Override
+    public String toString() {
+        return "RegularRound{" +
+                "roundScore='" + roundScore + '\'' +
+                '}';
+    }
 }

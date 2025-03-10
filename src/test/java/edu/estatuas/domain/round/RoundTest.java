@@ -14,4 +14,13 @@ class RoundTest {
         assertEquals(10, testround.getBlueBoxerScore());
 
     }
+
+    @Test
+    public void knockdownRoundTest(){
+        KnockdownRound testround = new KnockdownRound("8 - 10");
+
+        assertEquals(8, testround.getRedBoxerScore());
+        assertEquals(10, testround.getBlueBoxerScore());
+
+    }
 }

@@ -63,26 +63,38 @@ public class Scorecard {
 
     @Override
     public String toString() {
-        StringBuilder card = new StringBuilder();
 
-        card
-                .append("\n\n\n\n\t\t\t   " + color + "\t\t\n")
-                .append(redCorner + "\tVS\t\t" + blueCorner + "\n")
-                .append("\t\t\t" + rounds.length + " ROUNDS\t\t\n")
-                .append("Round\tScore\tRound\tScore\tRound\n")
-                .append("Score\tTotal\t\t\tTotal\tScore\n");
+        try{
 
-        int redSummingScore = 0;
-        int blueSummingScore = 0;
-        int currentRound = 1;
-        for (Round round : rounds){
-            redSummingScore = redSummingScore + round.getRedBoxerScore();
-            blueSummingScore = blueSummingScore + round.getBlueBoxerScore();
-            card.append(round.getRedBoxerScore() + "\t\t" + redSummingScore + "\t\t" + currentRound + "\t\t" + blueSummingScore + "\t\t" + round.getBlueBoxerScore() + "\n");
-            currentRound++;
+            StringBuilder card = new StringBuilder();
+
+            card
+                    .append("\n\n\n\n\t\t\t   " + color + "\t\t\n")
+                    .append(redCorner + "\tVS\t\t" + blueCorner + "\n")
+                    .append("\t\t\t" + rounds.length + " ROUNDS\t\t\n")
+                    .append("Round\tScore\tRound\tScore\tRound\n")
+                    .append("Score\tTotal\t\t\tTotal\tScore\n");
+
+            int redSummingScore = 0;
+            int blueSummingScore = 0;
+            int currentRound = 1;
+            for (Round round : rounds){
+                redSummingScore = redSummingScore + round.getRedBoxerScore();
+                blueSummingScore = blueSummingScore + round.getBlueBoxerScore();
+                card.append(round.getRedBoxerScore() + "\t\t" + redSummingScore + "\t\t" + currentRound + "\t\t" + blueSummingScore + "\t\t" + round.getBlueBoxerScore() + "\n");
+                currentRound++;
+            }
+            card.append("FINAL SCORE " + getRedBoxerFinalScore() + "\t-\t" + getBlueBoxerFinalScore() + " FINAL SCORE" + "\n\n\n\n");
+            return card.toString();
+
+        } catch (NullPointerException e){
+
+
+
         }
-        card.append("FINAL SCORE " + getRedBoxerFinalScore() + "\t-\t" + getBlueBoxerFinalScore() + " FINAL SCORE" + "\n\n\n\n");
-        return card.toString();
+
+
+        return "La Scorecard creada se encuentra incompleta";
     }
 
 }

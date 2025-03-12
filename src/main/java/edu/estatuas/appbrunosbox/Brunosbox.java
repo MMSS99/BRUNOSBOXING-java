@@ -68,6 +68,7 @@ public class Brunosbox
          */
 
         Scorecard whiteScoreCard = new Scorecard("WHITE");
+        System.out.println(whiteScoreCard);
 
         /**
          * Asigna el nombre de los pugiles
